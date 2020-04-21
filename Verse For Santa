@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define lli long long int 
+#define ulli unsigned long long int
+#define li long int 
+#define ff(i,a,b) for(int i=a;i<=b;i++)
+#define fb(i,b,a) for(int i=b;i>=a;i--)
+#define w(t) while(--t >= 0)
+#define l(s) s.length()
+#define c(n) cin>>n;
+#define fast ios_base::sync_with_stdio(false);
+#define sa(a,n) sort(a,a+n)
+#define sv(v) sort(v.begin(),v.end())
+ 
+int main() 
+{
+    fast
+    int t,n,count;
+    cin>>t;
+    lli s,sum;
+    w(t)
+    {
+        count = 0;
+        sum=0;
+        cin>>n>>s;
+        vector<int> a(n);
+        ff(i,0,n-1)
+        {
+            cin>>a[i];
+        }
+        int pos = -1;
+        int i;
+        for(i=0;i<=n-1;i++)
+        {
+            if(pos==-1||a[i]>a[pos])
+                pos=i;
+            if(a[i]<=s)
+            {
+                s-=a[i];
+            }
+            else
+            {
+                break;
+            }
+        }
+        if(i==n)
+            cout<<"0\n";
+        else
+            cout<<pos+1<<endl;
+    }
+	return 0;
+}
