@@ -1,0 +1,81 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define lli long long int 
+#define ulli unsigned long long int
+#define ff(i,a,b) for(int i=a;i<=b;i++)
+#define fb(i,b,a) for(int i=b;i>=a;i--)
+#define w(t) while(--t >= 0)
+#define l(s) s.length()
+#define c(n) cin>>n;
+#define fast ios_base::sync_with_stdio(false);
+ 
+int main() 
+{
+    fast
+    int n;
+    int t;
+    c(t)
+    int flag;
+    w(t)
+    {
+        flag = 0;
+        c(n)
+        int a[n],b[n];
+        ff(i,0,n-1)
+        {
+            cin>>a[i];
+        }
+        ff(i,0,n-1)
+        {
+            cin>>b[i];
+        }
+        if(a[0] != b[0])
+        {
+            cout<<"NO\n";
+            continue;
+        }
+        /*if(a[0] == 1)
+        {
+            cout<<"YES\n";
+            continue;
+        }*/
+        int one=0,none=0;
+        for(int i=0;i<n;i++)
+        {
+            //cout<<one<<none<<endl;
+            if(a[i]-b[i]>0)
+            {
+                if(none == 0)
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            else if(a[i]-b[i]<0)
+            {
+                if(one == 0)
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            if(a[i] == 1)
+            {
+                one = 1;
+            }
+            if(a[i] == -1)
+            {
+                none = 1;
+            }
+        }
+        if(flag)
+        {
+            cout<<"NO\n";
+        }
+        else
+        {
+            cout<<"YES\n";
+        }
+    }
+	return 0;
+}
