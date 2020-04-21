@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define lli long long int 
+#define ulli unsigned long long int
+#define ff(i,a,b) for(int i=a;i<=b;i++)
+#define fb(i,b,a) for(int i=b;i>=a;i--)
+#define w(t) while(--t >= 0)
+#define l(s) s.length()
+#define c(n) cin>>n;
+#define fast ios_base::sync_with_stdio(false);
+ 
+int main() 
+{
+    fast
+    int t,n;
+    cin>>t;
+    int f,dis,same;
+    w(t)
+    {
+        dis = 0;
+        same = 0;
+        cin>>n;
+        int a[n+1]={0};
+        ff(i,0,n-1)
+        {
+            c(f)
+            a[f]++;
+        }
+        if(n == 1)
+        {
+            cout<<"0\n";
+            continue;
+        }
+        for(int i=0;i<=n;i++)
+        {
+            if(a[i] > 0)
+            {
+                //cout<<"100\n";
+                if(a[i] == 1)
+                {
+                    //cout<<"200\n";
+                    dis++;
+                }
+                else if(a[i] > same)
+                {
+                    if(same != 0)
+                    {
+                        dis++;
+                    }
+                    //cout<<"300\n";
+                    same = a[i];
+                }
+                else
+                {
+                    //cout<<"400\n";
+                    dis++;
+                }
+            }
+        }
+        //cout<<dis<<" "<<same<<endl;
+        if(same == 0)
+        {
+            cout<<"1\n";
+            continue;
+        }
+        if(dis >= same)
+        {
+            cout<<same<<"\n";
+            continue;
+        }
+        if(same == dis+1)
+            cout<<dis<<endl;
+        else
+            cout<<dis+1<<endl;
+    }
+	return 0;
+}
