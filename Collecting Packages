@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define lli long long int 
+#define ulli unsigned long long int
+#define li long int 
+#define ff(i,a,b) for(int i=a;i<=b;i++)
+#define fb(i,b,a) for(int i=b;i>=a;i--)
+#define w(t) while(--t >= 0)
+#define l(s) s.length()
+#define c(n) cin>>n;
+#define fast ios_base::sync_with_stdio(false);
+#define sa(a,n) sort(a,a+n)
+#define sv(v) sort(v.begin(),v.end())
+ 
+int main() 
+{
+    fast
+    int t,n,x,y,flag;
+    cin>>t;
+    w(t)
+    {
+        flag = 0;
+        vector<pair<int,int>> point;
+        cin>>n;
+        ff(i,0,n-1)
+        {
+            cin>>x>>y;
+            point.push_back({y,x});
+        }
+        sv(point);
+        vector<char> ans;
+        x = 0;
+        y = 0;
+        for(int i=0;i<point.size();i++)
+        {
+            int x_a = point[i].second;
+            int y_a = point[i].first;
+            if(point[i].second < x)
+            {
+                flag = 1;
+                break;
+            }
+            y_a -= y;
+            x_a -= x;
+            y = point[i].first;
+            x = point[i].second;
+            while(x_a>0)
+            {
+                //cout<<point[i].second<<" "<<"r"<<endl;
+                //cout<<"u";
+                ans.push_back('R');
+                x_a--;
+            }
+            while(y_a>0)
+            {
+                //cout<<point[i].first<<" "<<'u'<<endl;
+                ans.push_back('U');
+                y_a--;
+            }
+        }
+        if(flag)
+        {
+            cout<<"NO\n";
+        }
+        else
+        {
+            cout<<"YES\n";
+            //cout<<ans.size();
+            for(int i=0;i<ans.size();i++)
+            {
+                cout<<ans[i];
+            }
+            cout<<"\n";
+        }
+    }
+	return 0;
+}
