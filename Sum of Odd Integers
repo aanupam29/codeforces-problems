@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define lli long long int 
+#define ulli unsigned long long int
+#define li long int 
+#define ff(i,a,b) for(int i=a;i<=b;i++)
+#define fb(i,b,a) for(int i=b;i>=a;i--)
+#define w(t) while(--t >= 0)
+#define l(s) s.length()
+#define c(n) cin>>n;
+#define fast ios_base::sync_with_stdio(false);
+ 
+int main() 
+{
+    fast
+    int t;
+    lli n,k;
+    cin>>t;
+    w(t)
+    {
+        cin>>n>>k;
+        if((n+k)%2 == 0 && k*k <= n) 
+        {
+            cout<<"YES\n";
+            continue;
+        }
+        else
+        {
+            cout<<"NO\n";
+        }
+    }
+	return 0;
+}
