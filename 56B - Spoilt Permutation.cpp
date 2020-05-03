@@ -34,7 +34,6 @@ int main()
     int l = -1,r = -1;
     ff(i,1,n)
     {
-        //cout<<a[i]<<endl;
         if(a[i] != i)
         {
             if(l == -1)
@@ -63,5 +62,5 @@ int main()
         }
     }
     cout<<l<<" "<<r;
-	return 0;
+    return 0;
 }
